@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список клиентов</title>
+    <link rel="stylesheet" href="frw/bootstrap.min.css" />
+    <script src="frw/bootstrap.min.js"></script>
+    <script src="frw/jquery.min.js"></script>
+    <script src="client.js"></script>
+    <style>
+    </style>
+</head>
+<body class="container-fluid p-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Клиенты</a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <button type="button"
+                                class="btn btn-sm btn-outline-primary"
+                                data-bs-toggle="modal" data-bs-target="#modalAddClient"
+                        >Добавить</button>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <table class="table table-success table-striped pt-3">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Телефон</th>
+                <th>Коментарий</th>
+            </tr>
+        </thead>
+        <tbody id="clientTableList">
+
+        </tbody>
+    </table>
+
+
+    <div class="modal" tabindex="-1" id="modalAddClient">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Данные клиента</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="clientFirstName" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="clientFirstName"
+                                   placeholder="Введите Имя" required>
+                            <div class="valid-feedback">
+                                Хорошо!
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="clientLastName" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="clientLastName"
+                                   placeholder="Введите Фамилию" required>
+                            <div class="valid-feedback">
+                                Хорошо!
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="clientMobilePhone" class="form-label">Мобильный телефон</label>
+                            <input type="text" class="form-control" id="clientMobilePhone"
+                                   placeholder="Ввведите номер мобильного телефона" required>
+                            <div class="invalid-feedback">
+                                Требуется ввести Номер телефона.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="clientDesc" class="form-label">Коментарий</label>
+                            <textarea class="form-control" id="clientDesc" rows="3"></textarea>
+                            <div class="invalid-feedback">
+                                Коментарий.
+                            </div>
+                        </div>
+                    </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" id="btnClientAdd">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
