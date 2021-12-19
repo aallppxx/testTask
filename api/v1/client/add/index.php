@@ -2,13 +2,19 @@
 
 require_once "../client.php";
 
+header('Content-type: application/json');
 
-if (isset($_REQUEST['firstName'], $_REQUEST['lastName'], $_REQUEST['mobilePhone'])) {
+$ctx = file_get_contents('php://input');
+$json = json_decode($ctx, true);
+
+if (isset($json['firstName'], $json['lastName'], $json['mobilePhone'])) {
     $client = new Client(
-        $_REQUEST['firstName'],
-        $_REQUEST['lastName'],
-        $_REQUEST['mobilePhone'],
-        $_REQUEST['desc']
+        $json['firstName'],
+        $json['lastName'],
+        $json['mobilePhone'],
+        $json['comment']
     );
-    $client->dbInsert();
+    echo $client->dbInsert() ? '{"ok": true}' : $client->someError;
+} else {
+    exit('{"error": "not valid request"}');
 }

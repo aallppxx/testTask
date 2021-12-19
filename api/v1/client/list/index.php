@@ -1,13 +1,10 @@
 <?php
 
-require_once "../../pdo.php";
+require_once "../client.php";
 
-$statement = $pdo->prepare(
-    'SELECT id,firstName,lastNmae,mobilePhone,desc '.
-            'FROM client WHERE SORT BY firstName,lastName '
-);
-$statement->execute();
+header('Content-type: application/json');
 
-$data = $statement->fetchAll();
+$client = new Client();
+$data = $client->dbList();
 
 echo json_encode($data);

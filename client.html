@@ -8,6 +8,10 @@
     <script src="frw/jquery.min.js"></script>
     <script src="client.js"></script>
     <style>
+        #clientTableList td .btn-sm {
+            padding: 0 5px;
+            border-style: dotted;
+        }
     </style>
 </head>
 <body class="container-fluid p-2">
@@ -24,7 +28,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <button type="button"
-                                class="btn btn-sm btn-outline-primary"
+                                class="btn btn-sm btn-outline-success"
                                 data-bs-toggle="modal" data-bs-target="#modalAddClient"
                         >Добавить</button>
                     </li>
@@ -45,6 +49,7 @@
                 <th>Фамилия</th>
                 <th>Телефон</th>
                 <th>Коментарий</th>
+                <th>Изменить/Удалить</th>
             </tr>
         </thead>
         <tbody id="clientTableList">
@@ -64,32 +69,33 @@
                     <p>
                     <form class="row g-3 needs-validation" novalidate>
                         <div class="col-md-12">
-                            <label for="clientFirstName" class="form-label">Имя</label>
-                            <input type="text" class="form-control" id="clientFirstName"
+                            <label for="inpAddClientFirstName" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="inpAddClientFirstName"
                                    placeholder="Введите Имя" required>
                             <div class="valid-feedback">
                                 Хорошо!
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="clientLastName" class="form-label">Фамилия</label>
-                            <input type="text" class="form-control" id="clientLastName"
+                            <label for="inpAddClientLastName" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="inpAddClientLastName"
                                    placeholder="Введите Фамилию" required>
                             <div class="valid-feedback">
                                 Хорошо!
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="clientMobilePhone" class="form-label">Мобильный телефон</label>
-                            <input type="text" class="form-control" id="clientMobilePhone"
+                            <label for="inpAddClientMobilePhone" class="form-label">Мобильный телефон</label>
+                            <input type="number" class="form-control" id="inpAddClientMobilePhone"
+                                   minlength="10" min="1000000000" max="9999999999999999"
                                    placeholder="Ввведите номер мобильного телефона" required>
                             <div class="invalid-feedback">
-                                Требуется ввести Номер телефона.
+                                Требуется ввести номер телефона (не меньше 10 цифр).
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="clientDesc" class="form-label">Коментарий</label>
-                            <textarea class="form-control" id="clientDesc" rows="3"></textarea>
+                            <label for="inpAddClientComment" class="form-label">Коментарий</label>
+                            <textarea class="form-control" id="inpAddClientComment" rows="3"></textarea>
                             <div class="invalid-feedback">
                                 Коментарий.
                             </div>
